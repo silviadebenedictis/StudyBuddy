@@ -1,7 +1,10 @@
 import os
-from app import app
+from app import app, models
 from flask import render_template, request, redirect
 from flask_pymongo import PyMongo
+from app.models import model
+
+# from flask_table import Table, Col
 
 app.config['MONGO_DBNAME'] = 'StudyBuddy' 
 
@@ -48,8 +51,44 @@ def results():
         classes_name = request.form['classes']
         print('name')
 
+        callcourse = model.search(college_name,course_name)
+        print(callcourse)
         collection = mongo.db.Form
         # print(name
         collection.insert({'name': name_name, 'college': college_name, 'email':email_name, 'major': major_name, 'course': course_name, 'classes': classes_name})
         return render_template("results.html", name_name = name_name , college_name = college_name ,email_name = email_name , major_name = major_name ,course_name = course_name, classes_name = classes_name)
         
+
+
+
+# Declare your table
+# class ItemTable(Table):
+#     name = Col('Name')
+#     description = Col('Description')
+
+# items = [dict(name='Name1', description='Description1'),
+#          dict(name='Name2', description='Description2'),
+#          dict(name='Name3', description='Description3')]
+
+# # Populate the table
+# table = ItemTable(items)
+
+# Print the html
+# print(table.__html__())
+# or just {{ table }} from within a Jinja template
+        
+
+@app.route('/confirm', methods = ['GET', 'POST'])
+def confirm():
+    if request.method == "GET":
+        return render_template('results.html')
+    else:
+        return render_template("confirm.html")
+        
+@app.route('/options', methods = ['GET', 'POST'])
+def options():
+    if request.method == "GET":
+        return render_template('results.html')
+    else:
+        return render_template("options.html")
+

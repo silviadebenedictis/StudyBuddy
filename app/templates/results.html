@@ -2,12 +2,56 @@
     <head>
         <link href="static/style.css" rel="stylesheet">
     </head>
-    <body>
-        <p> Your result is {{name_name }}</p>
-        <p> Your result is {{college_name}}</p>
-        <p> Your result is {{email_name }}</p>
-        <p> Your result is {{major_name}}</p>
-        <p> Your result is {{course_name}}</p>
-        <p> Your result is {{classes_name }}</p>
+      <body>
+      <h2>Your Information</h2>
+    <p>
+    <table>
+      <style>
+      table, th, td {
+      border: 1px solid black;
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 50%;
+      text-align: left;
+      padding: 8px;
+      }
+      </style>
+    <div class="table">
+    <th>College</th>
+    <th>Course </th>
+    <th>Major </th>
+    <th>Class</th>
+    <th>Dates </th>
+    <th>Time </th>
+    <th>Location </th>
+  </tr>
+  <tr>
+    <td>
+      
+      {{college_name }} </td>
+    <td>
+      {{course_name }}</td>
+    <td>
+      {{major_name}} 
+    </td>
+    
+    <td>{{classes_name}}</td>
+    <!--<td>McGill_University-->
+    <!--    University_of_Michgan-->
+    <!--    Hunter_College-->
+    <!--    City_College-->
+    <!--    Barch-->
+    <!--    Harvard-->
+    <!--    BMCCBMCC-->
+    </td>
+    <td>Enter time</td>
+    <td>Enter location</td>
+  </tr> </table></p>
+  
     </body>
+    <p>
+    <form method='POST' action="/confirm">
+    <input type="submit" value="Next" />
+    </p>
+    
 </html>
