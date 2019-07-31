@@ -1,57 +1,71 @@
 <html>
-    <head>
-        <link href="static/style.css" rel="stylesheet">
-    </head>
-      <body>
-      <h2>Your Information</h2>
-    <p>
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <h2>Your Information</h2>
+  <p>
     <table>
       <style>
-      table, th, td {
-      border: 1px solid black;
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 50%;
-      text-align: left;
-      padding: 8px;
-      }
+        table,
+        th,
+        td {
+          border: 1px solid black;
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 50%;
+          text-align: left;
+          padding: 8px;
+        }
       </style>
-    <div class="table">
-    <th>College</th>
-    <th>Course </th>
-    <th>Major </th>
-    <th>Class</th>
-    <th>Dates </th>
-    <th>Time </th>
-    <th>Location </th>
-  </tr>
-  <tr>
-    <td>
-      
-      {{college_name }} </td>
-    <td>
-      {{course_name }}</td>
-    <td>
-      {{major_name}} 
-    </td>
-    
-    <td>{{classes_name}}</td>
-    <!--<td>McGill_University-->
-    <!--    University_of_Michgan-->
-    <!--    Hunter_College-->
-    <!--    City_College-->
-    <!--    Barch-->
-    <!--    Harvard-->
-    <!--    BMCCBMCC-->
-    </td>
-    <td>Enter time</td>
-    <td>Enter location</td>
-  </tr> </table></p>
-  
-    </body>
-    <p>
-    <form method='POST' action="/confirm">
-    <input type="submit" value="Next" />
-    </p>
-    
+      <div class="table">
+        <th>College</th>
+        <th>Course </th>
+        <th>Major </th>
+        <th>Class</th>
+        <th>Dates </th>
+        <th>Location </th>
+        <th>Times (pick one) </th>
+        </tr>
+        <tr>
+          <td>
+
+            {{ userInfo.college_name }} </td>
+          <td>
+            {{userInfo.course_name }}</td>
+          <td>
+            {{userInfo.major_name}}
+          </td>
+
+          <td>{{userInfo.classes_name}}</td>
+          <td>{{ location }}</td>
+          <td>{{ date }}</td>
+          <td>
+            <form method='POST' action="/confirm/{{userInfo._id}}">
+              <input type="submit" name="time" value= {{time}} />
+            </form>
+            
+            <form method='POST' action="/confirm">
+              <input type="submit" value="{{time2}}" />
+            </form>
+            <!--{{time3}}-->
+            <form method='POST' action="/confirm">
+              <input type="submit" value="{{time3}}" />
+            </form>
+            <!--{{time4}}-->
+            <form method='POST' action="/confirm">
+              <input type="submit" value="{{time4}}" />
+            </form>
+          </td>
+        </tr>
+    </table>
+  </p>
+
+</body>
+<p>
+
+</p>
+
 </html>

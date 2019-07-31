@@ -1,19 +1,58 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <body>
-            <title>Confirm </title>
-    </head>
+
+<head>
+
     <body>
-      <h1>Are you sure you want to join this group? </h1>
-      
-    <form method='POST' action="/index">
-    <input type="submit" value="No" />
-    <form method='POST' action="/index">
-    <input type="submit" value="Yes" />
-    
+        <title>Confirm </title>
+</head>
+<link rel="stylesheet" href="styles.css">
+
+    <center id="top">
+        <div class="logo"></div>
+        <h1>Are you sure you want to join this group? </h1>
+        </div>
+        <!--End Info-->
+    </center>
+    <!--End InvoiceTop-->
+
+
+
+    <div id="table">
+        <table>
+            <tr class="tabletitle">
+                <h2>College: {{userInfo.college_name }} </h2>
+                </td>
+                <h2>Course: {{userInfo.course_name }}</h2> 
+                </td>
+                <h2>Date: {{userInfo.date}} </h2>
+                </td>
+                <h2>Location: {{userInfo.location}} </h2>
+                <h2>Time: {{time}}</h2>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+    <!--End Table-->
+    <form method='POST' action="/noJoin">
+        <input type="submit" value="No" />
+    </form>
+    <form method='POST' action="yesJoin">
+        <input type="submit" value="Yes" />
+    </form>
     <form method='POST' action="/options">
-    <input type="submit" value="Create your own study group" />
+        <input type="submit" value="Create your own study group" />
+        <div id="legalcopy">
+            <p class="legal"><strong>Thank you for using Study Buddy!</strong>  Remember to save this appointment!.
+            </p>
+        </div>
+
+        </div>
+        <!--End InvoiceBot-->
+        </div>
+        <!--End Invoice-->
+
     </body>
-    </head>
+
 </html>

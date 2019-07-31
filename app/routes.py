@@ -3,6 +3,7 @@ from app import app, models
 from flask import render_template, request, redirect
 from flask_pymongo import PyMongo
 from app.models import model
+from bson.objectid import ObjectId
 
 # from flask_table import Table, Col
 
@@ -38,6 +39,7 @@ def index():
 #     return "Added User!"
 #     # insert new data
 
+
 @app.route('/results', methods = ['GET', 'POST'])
 def results():
     if request.method == "GET":
@@ -52,43 +54,75 @@ def results():
         print('name')
 
         callcourse = model.search(college_name,course_name)
+        date = callcourse['date']
+        time = callcourse['time']
+        time2 = callcourse['time2']
+        time3 = callcourse['time3']
+        time4 = callcourse['time4']
+        time5 = callcourse['time5']
+        location = callcourse ['location']
         print(callcourse)
         collection = mongo.db.Form
         # print(name
         collection.insert({'name': name_name, 'college': college_name, 'email':email_name, 'major': major_name, 'course': course_name, 'classes': classes_name})
-        return render_template("results.html", name_name = name_name , college_name = college_name ,email_name = email_name , major_name = major_name ,course_name = course_name, classes_name = classes_name)
+        userInfo = collection.find_one({"name" : name_name})
+        return render_template("results.html", userInfo = userInfo, date= date, time = time, time2 = time2, time3 = time3, time4 = time4, time5 = time5, location = location)
         
-
-
-
-# Declare your table
-# class ItemTable(Table):
-#     name = Col('Name')
-#     description = Col('Description')
-
-# items = [dict(name='Name1', description='Description1'),
-#          dict(name='Name2', description='Description2'),
-#          dict(name='Name3', description='Description3')]
-
-# # Populate the table
-# table = ItemTable(items)
-
-# Print the html
-# print(table.__html__())
-# or just {{ table }} from within a Jinja template
         
+        
+# @app.route('/options', methods = ['GET', 'POST'])
+# def options():
+#     if request.method == "GET":
+#         return render_template('/options.html')
+   
+   
+   
+@app.route('/createeevent', methods = ['GET', 'POST'])
+def createeevent():
+    if request.method == "GET":
+        return render_template('/options.html')
+    else:
+        name_name = request.form['name']
+        college_name = request.form['college']
+        course_name = request.form['course']
+        time_name = request.form['times']
+        dates_name = request.form['dates']
+        des_name = request.form['description']
 
-@app.route('/confirm', methods = ['GET', 'POST'])
-def confirm():
+        # callcourse = model.search(college_name,course_name)
+        # date = callcourse['date']
+        # time = callcourse['time']
+        # location = callcourse ['location']
+        collection = mongo.db.Form
+        
+        collection.insert({'college': college_name, 'course': course_name, 'time': time_name, 'dates': dates_name ,'Description of the structure of the study group': des_name })
+        # return render_template("options.html", college_name = college_name , course_name = course_name, dates_name = dates_name, time_name = time_name, des_name = des_name)
+        return render_template('accepted.html')
+     
+     
+        
+        
+        
+    
+@app.route('/confirm/<userID>', methods = ['GET', 'POST'])
+def confirm(userID):
     if request.method == "GET":
         return render_template('results.html')
     else:
-        return render_template("confirm.html")
+        collection = mongo.db.Form
+        userInfo = collection.find_one({'_id' : ObjectId(userID)})
+        time = request.form['time']
+        return render_template("confirm.html", userInfo= userInfo, time= time)
         
 @app.route('/options', methods = ['GET', 'POST'])
-def options():
-    if request.method == "GET":
-        return render_template('results.html')
+def page():
+    if request.method == "POST":
+        return render_template('options.html')
     else:
-        return render_template("options.html")
+        return render_template("confirm.html")
 
+
+# def event(eventID):
+#     collection = mongo.db.events
+#     event = collection.find_one({'_id' : ObjectId(eventID)})
+#     return render_template('event.html', event = event)
