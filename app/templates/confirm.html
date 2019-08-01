@@ -1,60 +1,160 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!DOCTYPE html>
 <html>
 
 <head>
-
-    <body>
-        <title>Confirm </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<link rel="stylesheet" href="styles.css">
 
-    <center id="top">
-        <div class="logo"></div>
-        <h1>Are you sure you want to join this group? </h1>
+<body>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">StudyBuddy</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="sass.html">About</a></li>
+                <li><a href="badges.html">Questions & Feedback</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">
+                    <div class="input-field">
+    
         </div>
-        <!--End Info-->
-    </center>
-    <!--End InvoiceTop-->
+                </i></a></li>
+            </ul>
+        </div>
+    </nav>
+     <span class="new badge red">1</span>
+  <span class="new badge blue">1</span>
+    <div class="container">
+        <div class="row">
+
+            <div class="receipt-main col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+                <div class="row">
+                    <div class="receipt-header">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                            <div class="receipt-right">
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="receipt-header receipt-header-mid">
+                        <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                            <div class="receipt-right">
+
+                                <title>Confirm </title>
+                                </head>
+                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                    <div class="receipt-left">
+                                        <h1>Confirmation</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-9">College:</td>
+                                        <td class="col-md-3"><i class="fa fa-inr"></i> {{userInfo['college']}} </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-9">Course:</td>
+                                        <td class="col-md-3"><i class="fa fa-inr"></i> {{userInfo['course']}} </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-9">Date:</td>
+                                        <td class="col-md-3"><i class="fa fa-inr"></i> {{date}} </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-9">Location:</td>
+                                        <td class="col-md-3"><i class="fa fa-inr"></i> {{location}} </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-md-9">Time:</td>
+                                        <td class="col-md-3"><i class="fa fa-inr"></i> {{time}}</td>
+                                    </tr>
 
 
 
-    <div id="table">
-        <table>
-            <tr class="tabletitle">
-                <h2>College: {{ userInfo['college']}} </h2>
-                </td>
-                <h2>Course: {{userInfo['course']}}</h2> 
-                </td>
-                <h2>Date: {{date}} </h2>
-                </td>
-                <h2>Location: {{location}} </h2>
-                <h2>Time: {{time}}</h2>
-                </td>
-            </tr>
 
-        </table>
+                                </tbody>
+                            </table>
+                            <link rel="stylesheet" href="style1.css">
+
+                            <center id="top">
+                                <div class="logo"></div>
+                                <h6>Are you sure you want to join this group? </h6>
+                        </div>
+                        <!--End Info-->
+                        </center>
+                        <!--End InvoiceTop-->
+
+
+
+                        </table>
+                    </div>
+                    <!--End Table-->
+
+                    <button onclick="window.location.href = 'https://525a7d43fccf41cf9eda052f82596402.vfs.cloud9.us-east-2.amazonaws.com/';">NO</button>
+
+                    <button onclick="myFunction()">YES</button>
+
+                    <p id="demo"></p>
+                    <script>
+                        function myFunction() {
+                            document.getElementById("demo").innerHTML = "Thank you for using Study Buddy! Remember to save this date!";
+                        }
+                    </script>
+
+                </div>
+                </form>
+                <form method='POST' action="/options">
+                    <input type="submit" value="Create your own study group" />
+
+
+            </div>
+            <!--End InvoiceBot-->
+
     </div>
-    <!--End Table-->
-    <form method='POST' action="/YesJoin/{{userInfo._id}}">
-              <input type="submit" name="time" value= "YES" />
-    </form>
-    </form>
-    <button onclick="window.location.href = 'https://525a7d43fccf41cf9eda052f82596402.vfs.cloud9.us-east-2.amazonaws.com/';">NO</button>
-
-</div>
-    </form>
-    <form method='POST' action="/options">
-        <input type="submit" value="Create your own study group" />
-        <div id="legalcopy">
-            <p class="legal"><strong>Thank you for using Study Buddy!</strong>  Remember to save this appointment!.
-            </p>
-        </div>
-
-        </div>
-        <!--End InvoiceBot-->
-        </div>
         <!--End Invoice-->
+          <div class="progress">
+      <div class="indeterminate" style="width: 70%"></div>
+  </div>
+        
+        
+         <div class="row smallest-size">
+          <!-- These divs will need classes so that they work as described -->
+          <div class="col l1">Legal</div>
+          <div class="col l1">Privacy Center <i class="small material-icons"></i></div>
+          <div class="col l1">Privacy Policy</div>
+          <div class="col l1">Cookies</div>
+          <div class="col l1">About Ads</div>
+          <div class="col l1 right"> 
+          <i class="material-icons tiny">copyright</i>
+          2019 StuddyBuddy</div>
+        </div>
+      </div>
+    </footer>
 
-    </body>
+</body>
 
 </html>

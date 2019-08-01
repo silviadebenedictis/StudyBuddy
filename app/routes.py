@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 def index():
     collection = mongo.db.Form
     students = collection.find({})
-    return render_template('index.html')
+    return render_template('paralex.html')
 
 
 # CONNECT TO DB, ADD DATA
@@ -77,8 +77,8 @@ def results():
    
    
    
-@app.route('/createeevent', methods = ['GET', 'POST'])
-def createeevent():
+@app.route('/createevent', methods = ['GET', 'POST'])
+def createevent():
     if request.method == "GET":
         return render_template('/options.html')
     else:
@@ -96,8 +96,8 @@ def createeevent():
         collection = mongo.db.Form
         
         collection.insert({'college': college_name, 'course': course_name, 'time': time_name, 'dates': dates_name ,'Description of the structure of the study group': des_name })
-        # return render_template("options.html", college_name = college_name , course_name = course_name, dates_name = dates_name, time_name = time_name, des_name = des_name)
-        return render_template('accepted.html')
+        return render_template("options.html", college_name = college_name , course_name = course_name, dates_name = dates_name, time_name = time_name, des_name = des_name)
+        
      
      
         
@@ -116,14 +116,20 @@ def confirm(userID):
         location = callcourse['location']
         time = request.form['time']
         return render_template("confirm.html", userInfo= userInfo, location = location, date= date, time= time)
-        
+ 
+
+
+
 @app.route('/options', methods = ['GET', 'POST'])
 def page():
     if request.method == "POST":
-        return render_template('confirm.html')
+        return render_template('options.html')
     else:
         collection = mongo.db.Form
         return render_template("options.html")
+
+
+
 
 
 # def event(eventID):

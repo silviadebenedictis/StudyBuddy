@@ -2,30 +2,126 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
 
 </head>
 
 <body>
-  <h1>Create your own study group !</h1>
-  <div class="event-list">
-  </div>
-  <ul>
-    {% for x in Colleges %}
-    <li>{{ x.name }} - {{ x.college}} - {{ x.course }}- {{ x.times }} - {{ x.course }}- {{ x.times }} - {{ x.dates }}- {{ x.description}} </li>
-    {% endfor %}
-  </ul>
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">one</a></li>
+        <li><a href="#!">two</a></li>
+        <li class="divider"></li>
+        <li><a href="#!">three</a></li>
+    </ul>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">StudyBuddy</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="sass.html">About</a></li>
+                <li><a href="badges.html">Questions & Feedback</a></li>
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">
+                    <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+                </i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <h2>Create your own study group !</h2>
+    <div class="event-list">
+    </div>
+    <ul>
+        {% for x in Colleges %}
+        <li>{{ x.name }} - {{ x.college}} - {{ x.course }}- {{ x.times }} - {{ x.course }}- {{ x.times }} - {{ x.dates }}- {{ x.description}} </li>
+        {% endfor %}
+    </ul>
 
-  <form method='POST' action="/createeevent">
-    Name: <br>
-    <input type="text " name="name" value="" /><br> College: <br>
-    <input type="text " name="college" value="" /><br> Course: <br>
-    <input type="text " name="course" value="" /><br> Times: <br>
-    <input type="text " name="times" value="" /><br> Dates: <br>
-    <input type="text " name="dates" value="" /><br> Description: <br>
-    <input type="text " name="description" value="" /><br>
-    <input type="submit" />
-  </form>
-  {% block content %}{% endblock %}
+    <!--<form method='POST' action="/createevent">-->
+    <!--    Name: <br>-->
+    <!--    <input type="text " name="name" value="" /><br> College: <br>-->
+    <!--    <input type="text " name="college" value="" /><br> Course: <br>-->
+    <!--    <input type="text " name="course" value="" /><br> Times: <br>-->
+    <!--    <input type="text " name="times" value="" /><br> Dates: <br>-->
+    <!--    <input type="text " name="dates" value="" /><br> Description: <br>-->
+    <!--    <input type="text " name="description" value="" /><br>-->
+    <!--    <input type="submit" />-->
+    <!--</form>-->
+
+
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Placeholder" name="name" id="first_name" type="text" class="validate">
+                    <label for="first_name">First Name</label>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="college" name="college" type="text" class="validate">
+                        <label for="password">College name</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="course" name="course" type="text" class="validate">
+                        <label for="password">Course</label></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Times" name="times" type="text" class="validate">
+                        <label for="password">Times</label></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Dates" name="dates" type="text" class="validate">
+                        <label for="password">Dates</label></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input placeholder="Description" name="description" type="text" class="validate">
+                        <label for="password">Description</label></label>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" <button onclick="SEND()">Submit</button>
+
+                <p id="demo"></p>
+                <script>
+                    function SEND() {
+                        document.getElementById("demo").innerHTML = "Your new group has been created!";
+                    }
+                </script>
+                </button>
+
+            </div>
+        </form>
+    </div>
+    {% block content %}{% endblock %}
+
+    <div class="progress">
+        <div class="indeterminate" style="width: 70%"></div>
+    </div>
+
+
+    <div class="row smallest-size">
+        <!-- These divs will need classes so that they work as described -->
+        <div class="col l1">Legal</div>
+        <div class="col l1">Privacy Center</div>
+        <div class="col l1">Privacy Policy</div>
+        <div class="col l1">Cookies</div>
+        <div class="col l1">About Ads</div>
+        <div class="col l1 right">
+            <i class="material-icons tiny">copyright</i> 2019 StuddyBuddy</div>
+    </div>
+
+
 </body>
 
 </html>

@@ -1,10 +1,33 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <ul id="dropdown1" class="dropdown-content">
+    <li><a href="#!">one</a></li>
+    <li><a href="#!">two</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
+  </ul>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo">StudyBuddy</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="sass.html">About</a></li>
+        <li><a href="badges.html">Questions & Feedback</a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">
+                    <div class="input-field">
+          <input id="search" type="search" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+                </i></a></li>
+      </ul>
+    </div>
+  </nav>
   <h2>Your Information</h2>
   <p>
     <table>
@@ -45,9 +68,9 @@
           <td>{{ date }}</td>
           <td>
             <form method='POST' action="/confirm/{{userInfo._id}}">
-              <input type="submit" name="time" value= {{time}} />
+              <input type="submit" name="time" value={{time}} />
             </form>
-            
+
             <form method='POST' action="/confirm/{{userInfo._id}}">
               <input type="submit" name="time" value="{{time2}}" />
             </form>
@@ -59,7 +82,7 @@
             <form method='POST' action="/confirm/{{userInfo._id}}">
               <input type="submit" name="time" value="{{time4}}" />
             </form>
-            
+
             <form method='POST' action="/confirm/{{userInfo._id}}">
               <input type="submit" name="time" value="{{time5}}" />
             </form>
@@ -67,6 +90,27 @@
         </tr>
     </table>
   </p>
+    <div class="progress">
+      <div class="indeterminate" style="width: 70%"></div>
+  </div>
+  
+  
+        
+   <div class="row smallest-size">
+          <!-- These divs will need classes so that they work as described -->
+          <div class="col l1">Legal</div>
+          <div class="col l1">Privacy Center</div>
+          <div class="col l1">Privacy Policy</div>
+          <div class="col l1">Cookies</div>
+          <div class="col l1">About Ads</div>
+          <div class="col l1 right"> 
+          <i class="material-icons tiny">copyright</i>
+          2019 StuddyBuddy</div>
+        </div>
+      </div>
+    </footer>
+    
+    
 
 </body>
 <p>
