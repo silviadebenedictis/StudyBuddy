@@ -21,6 +21,7 @@
         }
       </style>
       <div class="table">
+        <!--<div class = "centered" -->
         <th>College</th>
         <th>Course </th>
         <th>Major </th>
@@ -32,14 +33,14 @@
         <tr>
           <td>
 
-            {{college_name }} </td>
+            {{ userInfo['college']}} </td>
           <td>
-            {{course_name }}</td>
+            {{userInfo['course']}}</td>
           <td>
-            {{major_name}}
+            {{userInfo['major']}}
           </td>
 
-          <td>{{classes_name}}</td>
+          <td>{{userInfo['classes']}}</td>
           <td>{{ location }}</td>
           <td>{{ date }}</td>
           <td>
@@ -47,16 +48,20 @@
               <input type="submit" name="time" value= {{time}} />
             </form>
             
-            <form method='POST' action="/confirm">
-              <input type="submit" value="{{time2}}" />
+            <form method='POST' action="/confirm/{{userInfo._id}}">
+              <input type="submit" name="time" value="{{time2}}" />
             </form>
             <!--{{time3}}-->
-            <form method='POST' action="/confirm">
-              <input type="submit" value="{{time3}}" />
+            <form method='POST' action="/confirm/{{userInfo._id}}">
+              <input type="submit" name="time" value="{{time3}}" />
             </form>
             <!--{{time4}}-->
-            <form method='POST' action="/confirm">
-              <input type="submit" value="{{time4}}" />
+            <form method='POST' action="/confirm/{{userInfo._id}}">
+              <input type="submit" name="time" value="{{time4}}" />
+            </form>
+            
+            <form method='POST' action="/confirm/{{userInfo._id}}">
+              <input type="submit" name="time" value="{{time5}}" />
             </form>
           </td>
         </tr>

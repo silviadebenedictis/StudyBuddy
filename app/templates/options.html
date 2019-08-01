@@ -6,26 +6,26 @@
 </head>
 
 <body>
-    <h1>Create your own study group !</h1>
-    <div class="event-list">
-    </div>
-    <ul>
-        {% for x in Colleges %}
-        <li>{{ x.name }} - {{ x.college}} - {{ x.course }}- {{ x.times }} - {{ x.course }}- {{ x.times }} - {{ x.dates }}- {{ x.description}} </li>
-        {% endfor %}
-    </ul>
+  <h1>Create your own study group !</h1>
+  <div class="event-list">
+  </div>
+  <ul>
+    {% for x in Colleges %}
+    <li>{{ x.name }} - {{ x.college}} - {{ x.course }}- {{ x.times }} - {{ x.course }}- {{ x.times }} - {{ x.dates }}- {{ x.description}} </li>
+    {% endfor %}
+  </ul>
 
-    <form method='POST' action="/createeevent">
-        Name: <br>
-        <input type="text " name="name" value="" /><br> College: <br>
-        <input type="text " name="college" value="" /><br> Course: <br>
-        <input type="text " name="course" value="" /><br> Times: <br>
-        <input type="text " name="times" value="" /><br> Dates: <br>
-        <input type="text " name="dates" value="" /><br> Description: <br>
-        <input type="text " name="description" value="" /><br>
-        <input type="submit" />
-    </form>
-    {% block content %}{% endblock %}
+  <form method='POST' action="/createeevent">
+    Name: <br>
+    <input type="text " name="name" value="" /><br> College: <br>
+    <input type="text " name="college" value="" /><br> Course: <br>
+    <input type="text " name="course" value="" /><br> Times: <br>
+    <input type="text " name="times" value="" /><br> Dates: <br>
+    <input type="text " name="dates" value="" /><br> Description: <br>
+    <input type="text " name="description" value="" /><br>
+    <input type="submit" />
+  </form>
+  {% block content %}{% endblock %}
 </body>
 
 </html>

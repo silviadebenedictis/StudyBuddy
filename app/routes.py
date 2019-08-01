@@ -111,15 +111,19 @@ def confirm(userID):
     else:
         collection = mongo.db.Form
         userInfo = collection.find_one({'_id' : ObjectId(userID)})
+        callcourse = model.search(userInfo['college'],userInfo['course'])
+        date = callcourse['date']
+        location = callcourse['location']
         time = request.form['time']
-        return render_template("confirm.html", userInfo= userInfo, time= time)
+        return render_template("confirm.html", userInfo= userInfo, location = location, date= date, time= time)
         
 @app.route('/options', methods = ['GET', 'POST'])
 def page():
     if request.method == "POST":
-        return render_template('options.html')
+        return render_template('confirm.html')
     else:
-        return render_template("confirm.html")
+        collection = mongo.db.Form
+        return render_template("options.html")
 
 
 # def event(eventID):

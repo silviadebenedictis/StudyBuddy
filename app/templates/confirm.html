@@ -21,13 +21,13 @@
     <div id="table">
         <table>
             <tr class="tabletitle">
-                <h2>College: {{userInfo.college_name }} </h2>
+                <h2>College: {{ userInfo['college']}} </h2>
                 </td>
-                <h2>Course: {{userInfo.course_name }}</h2> 
+                <h2>Course: {{userInfo['course']}}</h2> 
                 </td>
-                <h2>Date: {{userInfo.date}} </h2>
+                <h2>Date: {{date}} </h2>
                 </td>
-                <h2>Location: {{userInfo.location}} </h2>
+                <h2>Location: {{location}} </h2>
                 <h2>Time: {{time}}</h2>
                 </td>
             </tr>
@@ -35,11 +35,13 @@
         </table>
     </div>
     <!--End Table-->
-    <form method='POST' action="/noJoin">
-        <input type="submit" value="No" />
+    <form method='POST' action="/YesJoin/{{userInfo._id}}">
+              <input type="submit" name="time" value= "YES" />
     </form>
-    <form method='POST' action="yesJoin">
-        <input type="submit" value="Yes" />
+    </form>
+    <button onclick="window.location.href = 'https://525a7d43fccf41cf9eda052f82596402.vfs.cloud9.us-east-2.amazonaws.com/';">NO</button>
+
+</div>
     </form>
     <form method='POST' action="/options">
         <input type="submit" value="Create your own study group" />
