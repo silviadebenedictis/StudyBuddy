@@ -55,7 +55,7 @@ def results():
 
         callcourse = model.search(college_name,course_name)
         date = callcourse['date']
-        time = callcourse['time']
+        time = callcourse['time'] 
         time2 = callcourse['time2']
         time3 = callcourse['time3']
         time4 = callcourse['time4']
